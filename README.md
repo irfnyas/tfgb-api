@@ -28,9 +28,14 @@ Or using Uvicorn directly:
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
-Or directly:
+### 3. Run with Docker
+
 ```bash
-python main.py
+# Build image locally
+docker build -t tfgb-api .
+
+# Run container
+docker run -d -p 8000:8000 --name tfgb-api tfgb-api
 ```
 
 ---
