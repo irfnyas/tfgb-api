@@ -21,6 +21,7 @@ mjt/
 ## ⚙️ Architecture & Session Lifecycle
 
 The MJT web portal employs a session verification mechanism requiring three key components:
+
 1. **`mjt` Cookie**: Session identifier cookie set by the web portal.
 2. **`X-TOKEN` Cookie**: Authentication token cookie.
 3. **`pisNonce`**: Dynamic nonce extracted from the JavaScript configuration of the portal HTML (`https://mjt.trans.my.id/pis/web`).
@@ -43,10 +44,11 @@ The MJT web portal employs a session verification mechanism requiring three key 
 All routes are prefixed with `/api/mjt`.
 
 ### 1. `GET /api/mjt/token`
+
 Retrieves current session tokens and nonce.
 
 - **Query Parameters**:
-  - `refresh` *(boolean, optional, default=false)*: Pass `?refresh=true` to force token renewal from upstream immediately.
+  - `refresh` _(boolean, optional, default=false)_: Pass `?refresh=true` to force token renewal from upstream immediately.
 - **Sample Response**:
   ```json
   {
@@ -60,7 +62,8 @@ Retrieves current session tokens and nonce.
 
 ---
 
-### 2. `GET /api/mjt/json_getInitialBuses`
+### 2. `GET /api/mjt/buses`
+
 Fetches real-time bus locations, headings, velocity, and telemetry.
 
 - **Upstream Ajax**: `https://mjt.trans.my.id/pis/ajax/json_getInitialBuses`
@@ -97,14 +100,15 @@ Fetches real-time bus locations, headings, velocity, and telemetry.
         "speed": 14,
         "stime": "2026-08-19 10:41:24",
         "toward": "Simpang Soetta Kiaracondong 2"
-        }
+      }
     ]
   }
   ```
 
 ---
 
-### 3. `GET /api/mjt/json_getRoutes`
+### 3. `GET /api/mjt/routes`
+
 Fetches route geometries, coordinate offsets, and shelter lists.
 
 - **Upstream Ajax**: `https://mjt.trans.my.id/pis/ajax/json_getRoutes`

@@ -21,13 +21,17 @@ pip install -r requirements.txt
 ### 2. Run the Development Server
 
 Using the FastAPI CLI:
+
 ```bash
 fastapi dev main.py
 ```
+
 Or using Uvicorn directly:
+
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
+
 ### 3. Run with Docker
 
 ```bash
@@ -42,14 +46,14 @@ docker run -d -p 8000:8000 --name tfgb-api tfgb-api
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Service discovery & metadata |
-| `GET` | `/api/health` | Service health status |
-| `GET` | `/api/mjt/json_getInitialBuses` | Get initial active buses data |
-| `GET` | `/api/mjt/json_getRoutes` | Get bus routes data |
-| `GET` | `/api/mjt/token` | Get active session tokens (dynamic TTL cache, `?refresh=true` to force renew) |
-| `GET` | `/docs` | Interactive ReDoc API documentation |
+| Method | Endpoint          | Description                                                                   |
+| ------ | ----------------- | ----------------------------------------------------------------------------- |
+| `GET`  | `/`               | Service discovery & metadata                                                  |
+| `GET`  | `/api/health`     | Service health status                                                         |
+| `GET`  | `/api/mjt/buses`  | Get active buses data                                                         |
+| `GET`  | `/api/mjt/routes` | Get bus routes data                                                           |
+| `GET`  | `/api/mjt/token`  | Get active session tokens (dynamic TTL cache, `?refresh=true` to force renew) |
+| `GET`  | `/docs`           | Interactive ReDoc API documentation                                           |
 
 ---
 
@@ -69,4 +73,3 @@ docker run -d -p 8000:8000 --name tfgb-api tfgb-api
 ---
 
 Made with 🫰 by a fellow commuter.
-

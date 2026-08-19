@@ -8,6 +8,7 @@ router = APIRouter(
 )
 
 
+@router.get("/buses")
 @router.get(
     "/json_getInitialBuses",
     summary="Get Active Buses",
@@ -81,6 +82,7 @@ async def get_initial_buses() -> Dict[str, Any]:
         )
 
 
+@router.get("/routes")
 @router.get(
     "/json_getRoutes",
     summary="Get Bus Routes",
